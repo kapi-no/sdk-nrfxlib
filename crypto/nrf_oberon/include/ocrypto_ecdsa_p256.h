@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2024 Nordic Semiconductor ASA
+ * Copyright (c) 2016 - 2023 Nordic Semiconductor ASA
  * Copyright (c) since 2013 Oberon microsystems AG
  *
  * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
@@ -65,15 +65,10 @@ int ocrypto_ecdsa_p256_public_key(
  * @param      m    Input message.
  * @param      mlen Length of @p m.
  * @param      sk   Secret key.
- * @param      ek   Session key. Must be pre-filled with random data.
+ * @param      ek   Session key.
  *
  * @retval 0  If @p ek is a valid session key.
  * @retval -1 Otherwise.
- *
- * @remark To generate a valid signature use the following code pattern:
- *            @code{.c}
- *            do get_random(ek); while (ocrypto_ecdsa_p256_sign(sig, m, mlen, sk, ek));
- *            @endcode
  */
 int ocrypto_ecdsa_p256_sign(
     uint8_t sig[64],
@@ -90,15 +85,10 @@ int ocrypto_ecdsa_p256_sign(
  * @param[out] sig  Generated signature.
  * @param      hash Input hash.
  * @param      sk   Secret key.
- * @param      ek   Session key. Must be pre-filled with random data.
+ * @param      ek   Session key.
  *
  * @retval 0  If @p ek is a valid session key.
  * @retval -1 Otherwise.
- *
- * @remark To generate a valid signature use the following code pattern:
- *            @code{.c}
- *            do get_random(ek); while (ocrypto_ecdsa_p256_sign_hash(sig, hash, sk, ek));
- *            @endcode
  */
 int ocrypto_ecdsa_p256_sign_hash(
     uint8_t sig[64],
